@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="PedroParamo-01" size="0.279400 0.431800" />
+    <ImageTarget name="PrincipitoFlyer" size="0.279400 0.429406" />
+    <ImageTarget name="Perfume-05" size="0.279400 0.431255" />
+    <ImageTarget name="Metamorfosis-03" size="0.279400 0.431255" />
+    <ImageTarget name="HamletFlyer" size="0.279400 0.422480" />
+    <ImageTarget name="DrJekyll-02" size="0.279400 0.431255" />
+    <ImageTarget name="Dracula-04" size="0.279400 0.431255" />
+  </Tracking>
+</QCARConfig>
