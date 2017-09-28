@@ -25,4 +25,16 @@ public class loadscenes: MonoBehaviour{
 	public void loadPPLL(){
 		SceneManager.LoadScene("PPLL");
 	}
+
+	public void Facebook(){
+		Application.OpenURL ("https://www.facebook.com/pasionxlecturamty");
+	}
+
+	public void Pagina(){
+		Application.OpenURL ("http://www.pasionporlalectura.itesm.mx");
+	}
+
+	public void Twitter(){
+		Application.OpenURL ("https://twitter.com/PasionxLectura");
+	}
 }
