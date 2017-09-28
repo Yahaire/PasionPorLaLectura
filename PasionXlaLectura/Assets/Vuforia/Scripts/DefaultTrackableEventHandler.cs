@@ -65,22 +65,9 @@ namespace Vuforia
 
         #region PRIVATE_METHODS
 
-		public GameObject ar3DModel;
-		public int modelQuantity = 1;
-		public GameObject pantallaEncuesta;
-		public string nombreLibro;
 
         private void OnTrackingFound()
         {
-			if (modelQuantity > 0) {
-				modelQuantity--;
-				Instantiate(ar3DModel, this.transform);
-
-				Encuesta menuEncuesta = GetComponentInChildren<Encuesta>(true);
-				menuEncuesta.menuEncuesta = this.pantallaEncuesta;
-				menuEncuesta.nombreLibro = this.nombreLibro;
-			}
-
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
