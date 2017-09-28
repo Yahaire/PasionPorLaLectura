@@ -53,15 +53,15 @@ public class DestruirNuevo : MonoBehaviour {
 		}
 		*/
 
-		if(this.gameObject.name == "Murcielago")
+		if(this.gameObject.name == "Dracula_Murcielago")
 			libros [0] = 1;
 		if(this.gameObject.name == "Sombrero")
 			libros [1] = 1;
 		if(this.gameObject.name == "perfumeUV")
 			libros [2] = 1;
-		if(this.gameObject.name == "Cucaracha")
+		if(this.gameObject.name == "Metamorfosis_Cucaracha")
 			libros [3] = 1;
-		if(this.gameObject.name == "Pedrito")
+		if(this.gameObject.name == "PedroParamo_Sombrero")
 			libros [4] = 1;
 		if (this.gameObject.name == "rose")
 			libros [5] = 1;

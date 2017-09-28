@@ -2,6 +2,7 @@
 import UnityEngine.UI;
 
 var menu : GameObject;
+var botonatras : GameObject;
 var texto: Text;
 
 //var isShowing : Boolean;
@@ -34,11 +35,11 @@ function Start ()
          	//isShowing = !isShowing;
 			//Debug.Log("Lo va a encontrar");
 			menu.SetActive (true);
-			if (GameObject.Find("Murcielago") != null && hit.collider.name == "Murcielago")
+			if (GameObject.Find("Dracula_Murcielago") != null && hit.collider.name == "Dracula_Murcielago")
 			{
 				texto.text = "¿Por qué ver por separadas esta vida y la siguiente si una proviene de la anterior? ... Habla del anhelo, de un alma que clama por otra.";
-				GameObject.Find("Murcielago").SetActive (false);
-				Destroy(GameObject.Find("Murcielago"));
+				GameObject.Find("Dracula_Murcielago").SetActive (false);
+				Destroy(GameObject.Find("Dracula_Murcielago"));
 			}
 
 			if (GameObject.Find("Sombrero") != null && hit.collider.name == "Sombrero")
@@ -55,18 +56,18 @@ function Start ()
 				Destroy(GameObject.Find("perfumeUV"));
 			}
 
-			if (GameObject.Find("Cucaracha") != null && hit.collider.name == "Cucaracha")
+			if (GameObject.Find("Metamorfosis_Cucaracha") != null && hit.collider.name == "Metamorfosis_Cucaracha")
 			{
 				texto.text = "A pesar de su triste y repulsivo aspecto, era un miembro de la familia al que no se podía tratar como a un enemigo.";
-				GameObject.Find("Cucaracha").SetActive (false);
-				Destroy(GameObject.Find("Cucaracha"));
+				GameObject.Find("Metamorfosis_Cucaracha").SetActive (false);
+				Destroy(GameObject.Find("Metamorfosis_Cucaracha"));
 			}
 
-			if (GameObject.Find("Pedrito") != null && hit.collider.name == "Pedrito")
+			if (GameObject.Find("PedroParamo_Sombrero") != null && hit.collider.name == "PedroParamo_Sombrero")
 			{
 				texto.text = "Cada suspiro es como un sorbo de vida del que uno se deshace.";
-				GameObject.Find("Pedrito").SetActive (false);
-				Destroy(GameObject.Find("Pedrito"));
+				GameObject.Find("PedroParamo_Sombrero").SetActive (false);
+				Destroy(GameObject.Find("PedroParamo_Sombrero"));
 			}
 
 			if (GameObject.Find("rose") != null && hit.collider.name == "rose")
@@ -78,7 +79,7 @@ function Start ()
 
 			if (GameObject.Find("skull") != null && hit.collider.name == "skull")
 			{
-				texto.text = "Frase de Hamlet.";
+				texto.text = "Luis Me la pela";
 				GameObject.Find("skull").SetActive (false);
 				Destroy(GameObject.Find("skull"));
 			}
