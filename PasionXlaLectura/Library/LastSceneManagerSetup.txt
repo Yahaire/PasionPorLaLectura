@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/menuPPLL.unity
+- path: Assets/exploraPPLL.unity
   isLoaded: 1
   isActive: 1
