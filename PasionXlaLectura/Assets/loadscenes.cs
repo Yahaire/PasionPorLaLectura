@@ -8,4 +8,8 @@ public class loadscenes: MonoBehaviour{
 	public void loadExploar(){
 		SceneManager.LoadScene("exploraPPLL");
 	}
+
+	public void loadMenu(){
+		SceneManager.LoadScene("menuPPLL");
+	}
 }
