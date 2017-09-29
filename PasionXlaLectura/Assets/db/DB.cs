@@ -74,5 +74,28 @@ public class DB : MonoBehaviour {
         return result;
     }
 
+	public string[] informacionLibro(string nombreLibro)
+	{
+		string sQuery = "SELECT autor, genero, lugarDePublicacion, fecha, sinopsis FROM Libros WHERE nombreLibro = '" + nombreLibro + "'";
+		SimpleDataTable dt = db.QueryGeneric(sQuery);
+
+		string sAutor = dt.rows[0]["autor"].ToString();
+		string sGenero = dt.rows[0]["genero"].ToString();
+		string sLugarP = dt.rows[0]["lugarDePublicacion"].ToString();
+		string sFecha = dt.rows[0]["fecha"].ToString();
+		string sSinopsis = dt.rows[0]["sinopsis"].ToString();
+
+		string[] sResult = new string[5];
+
+		sResult[0] = sAutor;
+		sResult[1] = sGenero;
+		sResult[2] = sLugarP;
+		sResult[3] = sFecha;
+		sResult[4] = sSinopsis;
+
+		return sResult;
+
+	}
+
     
 }

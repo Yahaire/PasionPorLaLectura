@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PantallaEncuesta : MonoBehaviour {
 
@@ -25,6 +26,9 @@ public class PantallaEncuesta : MonoBehaviour {
 		int respuestasCorrectas = 0;
 	}
 
+	public void algo() {
+	}
+
 	public void iniciarEncuesta(string[,] preguntasYRespuestas) {
 		this.preguntasYRespuestas = preguntasYRespuestas;
 		this.reiniciarEncuesta ();
@@ -41,7 +45,11 @@ public class PantallaEncuesta : MonoBehaviour {
 		string respuestaF2 = preguntasYRespuestas [numPregunta, 3];
 		string respuestaF3 = preguntasYRespuestas [numPregunta, 4];
 
-
+		UIPregunta.GetComponent<Text> ().text = pregunta;
+		UIOpcion1.GetComponent<Text> ().text = respuestaC;
+		UIOpcion2.GetComponent<Text> ().text = respuestaF1;
+		UIOpcion3.GetComponent<Text> ().text = respuestaF2;
+		UIOpcion4.GetComponent<Text> ().text = respuestaF3;
 	}
 
 	// Update is called once per frame
