@@ -14,9 +14,6 @@ public class Encuesta : MonoBehaviour {
 	void Start () {
         // Conexión con la base de datos
         db = GameObject.FindGameObjectsWithTag("DBManager")[0].GetComponent<DB>();
-
-        // Conexión con la pantalla de encuestas
-        //menuEncuesta = GameObject.FindGameObjectsWithTag("MenuEncuesta")[0];
     }
 
     // Update is called once per frame
@@ -36,9 +33,13 @@ public class Encuesta : MonoBehaviour {
                 */
                 menuEncuesta.SetActive(true);
 				string [,] preguntas = db.getPreguntasYRespuestas(nombreLibro);
-				menuEncuesta.GetComponent<PantallaEncuesta> ().iniciarEncuesta (preguntas); 
+
+				menuEncuesta.GetComponent<PantallaEncuesta> ().iniciarEncuesta (preguntas, nombreLibro, db); 
                 Debug.Log("Activated menus");
-            } else { Debug.Log("You clicked nothing!"); }
+            } 
+			else { 
+				Debug.Log("You clicked nothing!"); 
+			}
             
         }
     }

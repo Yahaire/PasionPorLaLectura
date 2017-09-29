@@ -34,7 +34,7 @@ public class DB : MonoBehaviour {
                 "FROM Libros " +
                 "WHERE nombreLibro = '" + nombreLibro + "'");
 
-        return (bool)dt.rows[0]["desbloqueado"];
+		return ((int)dt.rows[0]["desbloqueado"] == 1);
     }
 
     public bool desbloquearLibro(string nombreLibro)
@@ -56,19 +56,20 @@ public class DB : MonoBehaviour {
 
     public string[,] getPreguntasYRespuestas(string nombreLibro)
     {
-        string[,] result = new string[5,4];
+        string[,] result = new string[5,5];
 
         SimpleDataTable dt = db.QueryGeneric(
-                "SELECT pregunta, respuesta, respuesta_f1, respuesta_f2 " +
+                "SELECT pre.pregunta, pre.respuesta, pre.respuesta_f1, pre.respuesta_f2, pre.respuesta_f3 " +
                 "FROM Preguntas pre, Libros lib " +
-                "WHERE nombreLibro = '" + nombreLibro + "' " +
+                "WHERE lib.nombreLibro = '" + nombreLibro + "' " +
                 "   AND lib.idLibro = pre.idLibro");
         for (int i = 0; i < 5; i++)
         {
-            result[i,0] = dt.rows[0]["pregunta"].ToString();
-            result[i,1] = dt.rows[0]["respuesta"].ToString();
-            result[i,2] = dt.rows[0]["respuesta_f1"].ToString();
-            result[i,3] = dt.rows[0]["respuesta_f2"].ToString();
+            result[i,0] = dt.rows[i]["pregunta"].ToString();
+			result[i,1] = dt.rows[i]["respuesta"].ToString();
+			result[i,2] = dt.rows[i]["respuesta_f1"].ToString();
+			result[i,3] = dt.rows[i]["respuesta_f2"].ToString();
+			result[i,4] = dt.rows[i]["respuesta_f3"].ToString();
         }
 
         return result;
