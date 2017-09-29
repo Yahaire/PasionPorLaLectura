@@ -21,23 +21,31 @@ public class PantallaEncuesta : MonoBehaviour {
 	private int meta = 3; // Cuantas respuestas correctas para ganar
 	private int respuestaCorrecta = 1;
 	private string nombreLibro;
+	private bool desbloqueado;
 
 	// Use this for initialization
 	void Start () {
 		// Conexión con la base de datos
 		//db = GameObject.FindGameObjectsWithTag("DBManager")[0].GetComponent<DB>();
-
-		reiniciarEncuesta ();
+		//reiniciarEncuesta ();
 	}
 
 	void reiniciarEncuesta () {
 		int respuestasCorrectas = 0;
 
-		// Activar botones
-		UIOpcion1.SetActive(true);
-		UIOpcion2.SetActive(true);
-		UIOpcion3.SetActive(true);
-		UIOpcion4.SetActive(true);
+		if (!desbloqueado) {
+			// Activar botones
+			UIOpcion1.SetActive (true);
+			UIOpcion2.SetActive (true);
+			UIOpcion3.SetActive (true);
+			UIOpcion4.SetActive (true);
+		} else {
+			UIPregunta.GetComponent<Text> ().text = "Felicidades! Desbloqueaste el libro " + nombreLibro + "!";
+			UIOpcion1.SetActive (false);
+			UIOpcion2.SetActive (false);
+			UIOpcion3.SetActive (false);
+			UIOpcion4.SetActive (false);
+		}
 	}
 		
 
@@ -46,6 +54,7 @@ public class PantallaEncuesta : MonoBehaviour {
 		this.nombreLibro = nombreLibro;
 		this.reiniciarEncuesta ();
 		this.db = db;
+		desbloqueado = db.libroDesbloqueado (nombreLibro);
 
 		cargarPregunta (0);
 	}
