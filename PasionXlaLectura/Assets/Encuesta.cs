@@ -35,6 +35,8 @@ public class Encuesta : MonoBehaviour {
                 Debug.Log("El ID de " + nombreLibro + " es " + db.getIdLibro(nombreLibro));
                 */
                 menuEncuesta.SetActive(true);
+				string [,] preguntas = db.getPreguntasYRespuestas(nombreLibro);
+				menuEncuesta.GetComponent<PantallaEncuesta> ().iniciarEncuesta (preguntas); 
                 Debug.Log("Activated menus");
             } else { Debug.Log("You clicked nothing!"); }
             
