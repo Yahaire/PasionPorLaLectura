@@ -10,9 +10,10 @@ public class DB : MonoBehaviour {
     // Use this for initialization
     void Start() {
         db = GetComponent<SimpleSQLManager>();
-
+        /* a simple test with an old table
         SimpleDataTable dt = db.QueryGeneric("SELECT * FROM Usuario");
         Debug.Log(dt.rows[0]["nombre"].ToString());
+        */
 	}
 	
     public string testDB()
@@ -26,27 +27,52 @@ public class DB : MonoBehaviour {
         return dt.rows[0]["idLibro"].ToString();
     }
 
-    public int getCountLibrosLeidos()
+    public bool libroDesbloqueado(string nombreLibro)
+    {
+        SimpleDataTable dt = db.QueryGeneric(
+                "SELECT desbloqueado " +
+                "FROM Libros " +
+                "WHERE nombreLibro = '" + nombreLibro + "'");
+
+        return (bool)dt.rows[0]["desbloqueado"];
+    }
+
+    public bool desbloquearLibro(string nombreLibro)
+    {
+        SimpleDataTable dt = db.QueryGeneric(
+                "UPDATE Libros " +
+                "SET desbloqueado = 1 " +
+                "WHERE nombreLibro = '" + nombreLibro + "'");
+        // si se puede hacer un chequeo aquí, debería hacerse
+        return true;
+    }
+
+    public int cantidadLibrosLeidos()
     {
         SimpleDataTable dt = db.QueryGeneric(
                 "SELECT COUNT(*) AS cantidad FROM Libros WHERE desbloqueado = 1");
         return (int)dt.rows[0]["cantidad"];
     }
 
-    public string[] getPreguntasYRespuestas(string nombreLibro)
+    public string[,] getPreguntasYRespuestas(string nombreLibro)
     {
-        string[] result = new string[4];
+        string[,] result = new string[5,4];
 
         SimpleDataTable dt = db.QueryGeneric(
-                "SELECT pregunta, respuesta, respuesta_f1, respuesta_f2" +
+                "SELECT pregunta, respuesta, respuesta_f1, respuesta_f2 " +
                 "FROM Preguntas pre, Libros lib " +
-                "WHERE nombreLibro = '" + nombreLibro + "'" +
+                "WHERE nombreLibro = '" + nombreLibro + "' " +
                 "   AND lib.idLibro = pre.idLibro");
-        result[0] = dt.rows[0]["pregunta"].ToString();
-        result[1] = dt.rows[0]["respuesta"].ToString();
-        result[2] = dt.rows[0]["respuesta_f1"].ToString();
-        result[3] = dt.rows[0]["respuesta_f2"].ToString();
+        for (int i = 0; i < 5; i++)
+        {
+            result[i,0] = dt.rows[0]["pregunta"].ToString();
+            result[i,1] = dt.rows[0]["respuesta"].ToString();
+            result[i,2] = dt.rows[0]["respuesta_f1"].ToString();
+            result[i,3] = dt.rows[0]["respuesta_f2"].ToString();
+        }
 
         return result;
     }
+
+    
 }

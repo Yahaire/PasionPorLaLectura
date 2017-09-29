@@ -5,7 +5,7 @@ using UnityEngine;
 public class Encuesta : MonoBehaviour {
     
     private DB db;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject menuEncuesta;
     [HideInInspector]
     public string nombreLibro;
@@ -29,13 +29,14 @@ public class Encuesta : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                string objectName = this.gameObject.name;
+                /*string objectName = this.gameObject.name;
                 Debug.Log("Su libro es" + nombreLibro);
                 Debug.Log(db.testDB() + "...eso dice la db");
                 Debug.Log("El ID de " + nombreLibro + " es " + db.getIdLibro(nombreLibro));
-
+                */
                 menuEncuesta.SetActive(true);
-            } else { Debug.Log("Nothing was hit"); }
+                Debug.Log("Activated menus");
+            } else { Debug.Log("You clicked nothing!"); }
             
         }
     }
